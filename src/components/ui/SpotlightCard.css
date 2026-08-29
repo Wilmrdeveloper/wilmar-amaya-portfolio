@@ -1,0 +1,35 @@
+.card-spotlight {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(180, 180, 180, 0.14);
+}
+
+/* No forzamos fondo/borde aquí para no romper tus tarjetas existentes.
+   Solo añade el efecto spotlight por encima. */
+
+.card-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 280px at var(--mouse-x) var(--mouse-y),
+            var(--spotlight-color),
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-spotlight:hover::before,
+.card-spotlight:focus-within::before {
+    opacity: 1;
+}
+
+/* El contenido debe quedar por encima del brillo */
+.card-spotlight>* {
+    position: relative;
+    z-index: 2;
+}

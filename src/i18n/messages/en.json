@@ -1,0 +1,50 @@
+{
+    "Metadata": {
+        "title": "Wilmar Amaya · Full Stack Software Developer",
+        "description": "Portfolio of Wilmar Amaya, Full Stack Software Developer focused on data analysis."
+    },
+    "Nav": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact",
+        "downloadCV": "Download CV"
+    },
+    "Hero": {
+        "badge": "Available for companies",
+        "title": "Wilmar Amaya",
+        "subtitle": "Full Stack Software Developer focused on data analysis",
+        "description": "Software Analysis and Development Technologist with experience in Power BI, Databricks, Python and web development. I turn data into decisions and build solid solutions.",
+        "ctaPrimary": "View projects",
+        "ctaSecondary": "Contact"
+    },
+    "About": {
+        "title": "About me",
+        "subtitle": "Professional profile"
+    },
+    "Skills": {
+        "title": "Technologies",
+        "subtitle": "Tools and languages I use"
+    },
+    "Projects": {
+        "title": "Projects",
+        "subtitle": "Selected work",
+        "viewProject": "View details"
+    },
+    "Contact": {
+        "title": "Contact",
+        "subtitle": "Available exclusively for companies and joint growth opportunities",
+        "formName": "Name",
+        "formEmail": "Corporate email",
+        "formCompany": "Company",
+        "formMessage": "Message",
+        "formSubmit": "Send message",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "linkedin": "LinkedIn",
+        "github": "GitHub"
+    },
+    "Footer": {
+        "rights": "All rights reserved"
+    }
+}
