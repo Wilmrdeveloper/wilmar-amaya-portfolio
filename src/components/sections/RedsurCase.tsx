@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "@/components/providers";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -18,6 +18,7 @@ import MorphSlider from "@/components/ui/MorphSlider";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 
 export function RedsurCase() {
+    const t = useTranslations("RedsurCase");
     const locale = useLocale();
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
@@ -43,12 +44,12 @@ export function RedsurCase() {
                     <a
                         href={`/${locale}#projects`}
                         className={`inline-flex items-center gap-2 text-sm mb-10 transition-colors ${isDark
-                                ? "text-neutral-400 hover:text-white"
-                                : "text-neutral-500 hover:text-neutral-900"
+                            ? "text-neutral-400 hover:text-white"
+                            : "text-neutral-500 hover:text-neutral-900"
                             }`}
                     >
                         <ArrowLeft className="h-4 w-4" />
-                        Volver a proyectos
+                        {t("back")}
                     </a>
                 </motion.div>
 
@@ -63,22 +64,19 @@ export function RedsurCase() {
                         className={`text-xs uppercase tracking-[0.25em] mb-4 ${isDark ? "text-neutral-500" : "text-neutral-400"
                             }`}
                     >
-                        Caso de estudio
+                        {t("caseStudy")}
                     </p>
                     <h1
                         className={`text-3xl md:text-5xl font-bold tracking-tight mb-4 ${isDark ? "text-white" : "text-neutral-900"
                             }`}
                     >
-                        RedSur Data Governance Portal
+                        {t("title")}
                     </h1>
                     <p
                         className={`text-lg font-light leading-relaxed max-w-2xl ${isDark ? "text-neutral-400" : "text-neutral-600"
                             }`}
                     >
-                        Portal de gobierno de datos que demuestra el ciclo completo del
-                        dato: desde fuentes oficiales sucias hasta decisiones de negocio
-                        confiables, con arquitectura medallón, RBAC y despliegue en
-                        producción.
+                        {t("subtitle")}
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-3">
@@ -89,7 +87,7 @@ export function RedsurCase() {
                             className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all hover:scale-[1.02] ${isDark ? "bg-white text-black" : "bg-neutral-900 text-white"
                                 }`}
                         >
-                            Ver en vivo
+                            {t("live")}
                             <ExternalLink className="h-4 w-4" />
                         </a>
                     </div>
@@ -106,11 +104,11 @@ export function RedsurCase() {
                         items={[
                             {
                                 image: "/images/redsur-before.png",
-                                caption: "Antes · Datos crudos del DANE",
+                                caption: t("beforeCaption"),
                             },
                             {
                                 image: "/images/redsur-after.png",
-                                caption: "Después · Dashboard interactivo",
+                                caption: t("afterCaption"),
                             },
                         ]}
                         transition="melt"
@@ -130,58 +128,49 @@ export function RedsurCase() {
                 </motion.div>
 
                 {/* Problem */}
-                <Section title="El problema" isDark={isDark}>
+                <Section title={t("problemTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
-                        RedSur Distribuciones S.A.S. es una empresa ficticia de consumo
-                        masivo en crecimiento regional. El problema es real: datos
-                        dispersos, sin control de acceso, sin trazabilidad y sin una fuente
-                        única de verdad. Cada área con su propio Excel.
+                        {t("problemP1")}
                     </p>
                     <p className={`${bodyClass(isDark)} mt-4`}>
-                        El punto de partida fueron datos reales de la Encuesta Anual de
-                        Comercio 2023 del DANE: CSV con separador decimal colombiano,
-                        columnas técnicas sin contexto, códigos de departamento no
-                        oficiales y valores en miles de pesos sin aclaración. 14.837
-                        registros, 10 departamentos, 9 sectores y más de 545 billones de
-                        pesos en ventas analizadas.
+                        {t("problemP2")}
                     </p>
                 </Section>
 
                 {/* Architecture */}
-                <Section title="Arquitectura" isDark={isDark}>
+                <Section title={t("architectureTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
-                        Arquitectura medallón de tres capas, estándar en ingeniería de
-                        datos moderna:
+                        {t("architectureIntro")}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
                         {[
                             {
                                 icon: <Database className="h-5 w-5" />,
-                                title: "Raw",
-                                desc: "Datos del DANE sin modificar en PostgreSQL. Regla de gobierno: no tocar el origen.",
+                                title: t("rawTitle"),
+                                desc: t("rawDesc"),
                             },
                             {
                                 icon: <Layers className="h-5 w-5" />,
-                                title: "Staging",
-                                desc: "dbt Core limpia, renombra, traduce códigos y calcula campos derivados.",
+                                title: t("stagingTitle"),
+                                desc: t("stagingDesc"),
                             },
                             {
                                 icon: <BarChart3 className="h-5 w-5" />,
-                                title: "Marts",
-                                desc: "Tablas de negocio: ventas por departamento, sector, personal por región.",
+                                title: t("martsTitle"),
+                                desc: t("martsDesc"),
                             },
                         ].map((item) => (
                             <SpotlightCard
                                 key={item.title}
                                 className={`rounded-2xl border p-5 ${isDark
-                                        ? "border-white/10 bg-white/[0.03]"
-                                        : "border-black/5 bg-neutral-50"
+                                    ? "border-white/10 bg-white/[0.03]"
+                                    : "border-black/5 bg-neutral-50"
                                     }`}
                             >
                                 <div
                                     className={`mb-3 inline-flex p-2 rounded-xl ${isDark
-                                            ? "bg-white/5 text-neutral-300"
-                                            : "bg-neutral-100 text-neutral-700"
+                                        ? "bg-white/5 text-neutral-300"
+                                        : "bg-neutral-100 text-neutral-700"
                                         }`}
                                 >
                                     {item.icon}
@@ -204,48 +193,41 @@ export function RedsurCase() {
                 </Section>
 
                 {/* Portal */}
-                <Section title="El portal y el gobierno" isDark={isDark}>
+                <Section title={t("portalTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
-                        Autenticación real con JWT y contraseñas bcrypt. Roles Admin,
-                        Editor y Viewer. El acceso a dashboards no es libre: el usuario
-                        solicita acceso, el admin aprueba o rechaza, y solo entonces recibe
-                        credenciales. Si se revoca el acceso, el workspace desaparece de su
-                        vista. RBAC aplicado de forma tangible.
+                        {t("portalP")}
                     </p>
                 </Section>
 
                 {/* Challenges */}
-                <Section title="Desafíos reales" isDark={isDark}>
+                <Section title={t("challengesTitle")} isDark={isDark}>
                     <ul
                         className={`space-y-4 text-sm md:text-base leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"
                             }`}
                     >
                         <li>
                             <strong className={isDark ? "text-white" : "text-neutral-900"}>
-                                Dashboards sin Metabase:
+                                {t("challenge1Title")}
                             </strong>{" "}
-                            el plan gratuito de Render no alcanza para Metabase. Se
-                            reconstruyeron en React + Recharts con datos de Supabase.
+                            {t("challenge1Desc")}
                         </li>
                         <li>
                             <strong className={isDark ? "text-white" : "text-neutral-900"}>
-                                Correo en producción:
+                                {t("challenge2Title")}
                             </strong>{" "}
-                            SMTP bloqueado en Render free. Solución con Resend (API de
-                            correo).
+                            {t("challenge2Desc")}
                         </li>
                         <li>
                             <strong className={isDark ? "text-white" : "text-neutral-900"}>
-                                Migración a Supabase:
+                                {t("challenge3Title")}
                             </strong>{" "}
-                            backup de más de un millón de caracteres. Migración por pipeline
-                            desde Docker, sin pasar por el editor SQL.
+                            {t("challenge3Desc")}
                         </li>
                     </ul>
                 </Section>
 
                 {/* Stack */}
-                <Section title="Stack" isDark={isDark}>
+                <Section title={t("stackTitle")} isDark={isDark}>
                     <div className="flex flex-wrap gap-2">
                         {[
                             "PostgreSQL",
@@ -262,8 +244,8 @@ export function RedsurCase() {
                             <span
                                 key={tech}
                                 className={`text-xs px-3 py-1.5 rounded-full border ${isDark
-                                        ? "border-white/10 text-neutral-400"
-                                        : "border-black/10 text-neutral-600"
+                                    ? "border-white/10 text-neutral-400"
+                                    : "border-black/10 text-neutral-600"
                                     }`}
                             >
                                 {tech}
@@ -273,41 +255,41 @@ export function RedsurCase() {
                 </Section>
 
                 {/* What it shows */}
-                <Section title="Qué demuestra" isDark={isDark}>
+                <Section title={t("showsTitle")} isDark={isDark}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
                             {
                                 icon: <Server className="h-5 w-5" />,
-                                title: "Problema de negocio primero",
-                                desc: "No es un ejercicio de código: es un caso de uso con solución coherente.",
+                                title: t("show1Title"),
+                                desc: t("show1Desc"),
                             },
                             {
                                 icon: <Database className="h-5 w-5" />,
-                                title: "Datos reales y sucios",
-                                desc: "Saber limpiar e interpretar fuentes oficiales, no solo datasets de ejemplo.",
+                                title: t("show2Title"),
+                                desc: t("show2Desc"),
                             },
                             {
                                 icon: <Shield className="h-5 w-5" />,
-                                title: "Arquitectura completa",
-                                desc: "Pipeline, base de datos, backend seguro y sistema de acceso.",
+                                title: t("show3Title"),
+                                desc: t("show3Desc"),
                             },
                             {
                                 icon: <GitBranch className="h-5 w-5" />,
-                                title: "Producción con límites",
-                                desc: "Despliegue gratuito coordinando varios servicios y resolviendo restricciones reales.",
+                                title: t("show4Title"),
+                                desc: t("show4Desc"),
                             },
                         ].map((item) => (
                             <SpotlightCard
                                 key={item.title}
                                 className={`rounded-2xl border p-5 ${isDark
-                                        ? "border-white/10 bg-white/[0.03]"
-                                        : "border-black/5 bg-neutral-50"
+                                    ? "border-white/10 bg-white/[0.03]"
+                                    : "border-black/5 bg-neutral-50"
                                     }`}
                             >
                                 <div
                                     className={`mb-3 inline-flex p-2 rounded-xl ${isDark
-                                            ? "bg-white/5 text-neutral-300"
-                                            : "bg-neutral-100 text-neutral-700"
+                                        ? "bg-white/5 text-neutral-300"
+                                        : "bg-neutral-100 text-neutral-700"
                                         }`}
                                 >
                                     {item.icon}
@@ -338,17 +320,17 @@ export function RedsurCase() {
                         className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium ${isDark ? "bg-white text-black" : "bg-neutral-900 text-white"
                             }`}
                     >
-                        Abrir portal en vivo
+                        {t("openLive")}
                         <ExternalLink className="h-4 w-4" />
                     </a>
                     <a
                         href={`/${locale}#contact`}
                         className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium border ${isDark
-                                ? "border-white/15 text-white hover:bg-white/5"
-                                : "border-black/10 text-neutral-900 hover:bg-black/5"
+                            ? "border-white/15 text-white hover:bg-white/5"
+                            : "border-black/10 text-neutral-900 hover:bg-black/5"
                             }`}
                     >
-                        Contactar
+                        {t("contact")}
                     </a>
                 </div>
             </div>

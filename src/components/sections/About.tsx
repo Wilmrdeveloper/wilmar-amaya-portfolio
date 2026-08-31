@@ -35,7 +35,7 @@ export function About() {
                         className="lg:col-span-5 flex justify-center lg:justify-start"
                     >
                         <TiltedCard
-                            imageSrc="/images/profile.jpg"   // ← pon aquí tu foto
+                            imageSrc="/images/profile.jpg"
                             altText="Wilmar Amaya"
                             captionText="Wilmar Amaya"
                             containerHeight="360px"
@@ -83,14 +83,7 @@ export function About() {
                             className={`text-lg md:text-xl font-light leading-relaxed ${isDark ? "text-neutral-300" : "text-neutral-700"
                                 }`}
                         >
-                            Tecnólogo en Análisis y Desarrollo de Software en crecimiento con experiencia en
-                            análisis de datos y desarrollo de software.
-                            He trabajado en la modelación de datos utilizando{" "}
-                            <span className={isDark ? "text-white font-medium" : "text-neutral-900 font-medium"}>
-                                Power BI, DAX y Databricks
-                            </span>
-                            , así como en el desarrollo backend y frontend.
-                            Busco aplicar mis conocimientos en una empresa que reconozca el valor de los datos.
+                            {t("paragraph1")}
                         </motion.p>
 
                         <motion.p
@@ -101,11 +94,7 @@ export function About() {
                             className={`text-base md:text-lg font-light leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"
                                 }`}
                         >
-                            Durante mi experiencia en el analisis de Datos en Alquería,
-                            construí dashboards para analisar indicadores, optimicé modelos
-                            DAX reduciendo tiempos de carga en un 30% y desarrollé pipelines
-                            ETL en Databricks. Me interesa construir soluciones sólidas no solo con
-                            el analisis de datos si no con el desarrollo de Software.
+                            {t("paragraph2")}
                         </motion.p>
 
                         {/* Info cards */}
@@ -117,15 +106,15 @@ export function About() {
                             className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2"
                         >
                             {[
-                                { label: "Ubicación", value: "Bogotá, Colombia" },
-                                { label: "Experiencia", value: "Análisis de Datos" },
-                                { label: "Enfoque", value: "Full Stack + Data" },
+                                { label: t("locationLabel"), value: t("locationValue") },
+                                { label: t("experienceLabel"), value: t("experienceValue") },
+                                { label: t("focusLabel"), value: t("focusValue") },
                             ].map((item, i) => (
                                 <div
                                     key={i}
                                     className={`rounded-2xl border p-4 ${isDark
-                                            ? "border-white/10 bg-white/[0.03]"
-                                            : "border-black/5 bg-neutral-50"
+                                        ? "border-white/10 bg-white/[0.03]"
+                                        : "border-black/5 bg-neutral-50"
                                         }`}
                                 >
                                     <p

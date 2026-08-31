@@ -17,7 +17,6 @@ import Link from "next/link";
 import MorphSlider from "@/components/ui/MorphSlider";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 
-
 export function Projects() {
     const t = useTranslations("Projects");
     const { resolvedTheme } = useTheme();
@@ -71,8 +70,8 @@ export function Projects() {
                 >
                     <SpotlightCard
                         className={`rounded-3xl border overflow-hidden ${isDark
-                                ? "border-white/10 bg-white/[0.03]"
-                                : "border-black/5 bg-neutral-50"
+                            ? "border-white/10 bg-white/[0.03]"
+                            : "border-black/5 bg-neutral-50"
                             }`}
                     >
                         {/* Top bar */}
@@ -85,14 +84,13 @@ export function Projects() {
                                     className={`text-xl md:text-2xl font-semibold tracking-tight ${isDark ? "text-white" : "text-neutral-900"
                                         }`}
                                 >
-                                    RedSur Data Governance Portal
+                                    {t("redsurTitle")}
                                 </h3>
                                 <p
                                     className={`text-sm mt-1 ${isDark ? "text-neutral-400" : "text-neutral-500"
                                         }`}
                                 >
-                                    Gobierno de datos · Arquitectura medallón · Dashboards
-                                    interactivos
+                                    {t("redsurSubtitle")}
                                 </p>
                             </div>
 
@@ -101,11 +99,11 @@ export function Projects() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all hover:scale-[1.02] active:scale-95 ${isDark
-                                        ? "bg-white text-black"
-                                        : "bg-neutral-900 text-white"
+                                    ? "bg-white text-black"
+                                    : "bg-neutral-900 text-white"
                                     }`}
                             >
-                                Ver proyecto en vivo
+                                {t("liveProject")}
                                 <ExternalLink className="h-4 w-4" />
                             </a>
                         </div>
@@ -118,33 +116,29 @@ export function Projects() {
                                     className={`text-lg md:text-xl font-light leading-relaxed ${isDark ? "text-neutral-300" : "text-neutral-700"
                                         }`}
                                 >
-                                    Portal de gobierno de datos construido para demostrar el ciclo
-                                    completo del dato: desde fuentes oficiales sucias hasta
-                                    decisiones de negocio confiables, con control de acceso real y
-                                    arquitectura de datos moderna.
+                                    {t("pitch")}
                                 </p>
                             </div>
 
-                            {/* Before / After - Morph + Cards */}
+                            {/* Before / After */}
                             <div className="space-y-8">
                                 <h4
                                     className={`text-sm font-medium uppercase tracking-widest ${isDark ? "text-neutral-500" : "text-neutral-400"
                                         }`}
                                 >
-                                    Antes → Después
+                                    {t("beforeAfter")}
                                 </h4>
 
-                                {/* MorphSlider */}
                                 <div className="relative w-full h-[280px] md:h-[380px] rounded-2xl overflow-hidden border border-white/5">
                                     <MorphSlider
                                         items={[
                                             {
                                                 image: "/images/redsur-before.png",
-                                                caption: "Antes · Datos crudos del DANE",
+                                                caption: t("beforeCaption"),
                                             },
                                             {
                                                 image: "/images/redsur-after.png",
-                                                caption: "Después · Dashboard interactivo",
+                                                caption: t("afterCaption"),
                                             },
                                         ]}
                                         transition="melt"
@@ -163,20 +157,19 @@ export function Projects() {
                                     />
                                 </div>
 
-                                {/* Tarjetas de contexto */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     {/* Antes */}
                                     <SpotlightCard
                                         className={`rounded-2xl border p-6 ${isDark
-                                                ? "border-white/10 bg-black/40"
-                                                : "border-black/5 bg-white"
+                                            ? "border-white/10 bg-black/40"
+                                            : "border-black/5 bg-white"
                                             }`}
                                     >
                                         <div className="flex items-center gap-3 mb-4">
                                             <span
                                                 className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold ${isDark
-                                                        ? "bg-white/10 text-neutral-300"
-                                                        : "bg-neutral-100 text-neutral-600"
+                                                    ? "bg-white/10 text-neutral-300"
+                                                    : "bg-neutral-100 text-neutral-600"
                                                     }`}
                                             >
                                                 01
@@ -185,7 +178,7 @@ export function Projects() {
                                                 className={`text-xs uppercase tracking-widest ${isDark ? "text-neutral-500" : "text-neutral-400"
                                                     }`}
                                             >
-                                                Antes
+                                                {t("beforeAfter").split("→")[0].trim()}
                                             </p>
                                         </div>
 
@@ -193,33 +186,33 @@ export function Projects() {
                                             className={`text-base font-medium mb-3 ${isDark ? "text-white" : "text-neutral-900"
                                                 }`}
                                         >
-                                            Datos crudos del DANE
+                                            {t("beforeTitle")}
                                         </p>
 
                                         <ul
                                             className={`space-y-2 text-sm ${isDark ? "text-neutral-400" : "text-neutral-600"
                                                 }`}
                                         >
-                                            <li>• CSV con separador decimal colombiano</li>
-                                            <li>• Columnas técnicas sin contexto</li>
-                                            <li>• Códigos de departamento no oficiales</li>
-                                            <li>• Valores en miles de pesos sin aclaración</li>
-                                            <li>• 14.837 registros sin estructura de negocio</li>
+                                            <li>• {t("beforeItem1")}</li>
+                                            <li>• {t("beforeItem2")}</li>
+                                            <li>• {t("beforeItem3")}</li>
+                                            <li>• {t("beforeItem4")}</li>
+                                            <li>• {t("beforeItem5")}</li>
                                         </ul>
                                     </SpotlightCard>
 
                                     {/* Después */}
                                     <SpotlightCard
                                         className={`rounded-2xl border p-6 ${isDark
-                                                ? "border-white/10 bg-white/[0.04]"
-                                                : "border-black/5 bg-neutral-100"
+                                            ? "border-white/10 bg-white/[0.04]"
+                                            : "border-black/5 bg-neutral-100"
                                             }`}
                                     >
                                         <div className="flex items-center gap-3 mb-4">
                                             <span
                                                 className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold ${isDark
-                                                        ? "bg-white text-black"
-                                                        : "bg-neutral-900 text-white"
+                                                    ? "bg-white text-black"
+                                                    : "bg-neutral-900 text-white"
                                                     }`}
                                             >
                                                 02
@@ -228,7 +221,7 @@ export function Projects() {
                                                 className={`text-xs uppercase tracking-widest ${isDark ? "text-neutral-500" : "text-neutral-400"
                                                     }`}
                                             >
-                                                Después
+                                                {t("beforeAfter").split("→")[1]?.trim() || "After"}
                                             </p>
                                         </div>
 
@@ -236,18 +229,18 @@ export function Projects() {
                                             className={`text-base font-medium mb-3 ${isDark ? "text-white" : "text-neutral-900"
                                                 }`}
                                         >
-                                            Portal gobernado + Dashboards
+                                            {t("afterTitle")}
                                         </p>
 
                                         <ul
                                             className={`space-y-2 text-sm ${isDark ? "text-neutral-400" : "text-neutral-600"
                                                 }`}
                                         >
-                                            <li>• Arquitectura medallón (Raw → Staging → Marts)</li>
-                                            <li>• Nombres de negocio legibles</li>
-                                            <li>• Departamentos y sectores traducidos</li>
-                                            <li>• Ventas en pesos reales</li>
-                                            <li>• Dashboards interactivos con control de acceso</li>
+                                            <li>• {t("afterItem1")}</li>
+                                            <li>• {t("afterItem2")}</li>
+                                            <li>• {t("afterItem3")}</li>
+                                            <li>• {t("afterItem4")}</li>
+                                            <li>• {t("afterItem5")}</li>
                                         </ul>
                                     </SpotlightCard>
                                 </div>
@@ -256,9 +249,7 @@ export function Projects() {
                                     className={`text-sm max-w-2xl ${isDark ? "text-neutral-500" : "text-neutral-500"
                                         }`}
                                 >
-                                    De datos oficiales sucios a un sistema gobernado: extracción,
-                                    limpieza, transformación, documentación y visualización con
-                                    control de acceso.
+                                    {t("transitionText")}
                                 </p>
                             </div>
 
@@ -267,36 +258,36 @@ export function Projects() {
                                 {[
                                     {
                                         icon: <Database className="h-5 w-5" />,
-                                        title: "Arquitectura medallón",
-                                        desc: "Raw, Staging y Marts con dbt Core y PostgreSQL",
+                                        title: t("archTitle"),
+                                        desc: t("archDesc"),
                                     },
                                     {
                                         icon: <Shield className="h-5 w-5" />,
-                                        title: "Gobierno real",
-                                        desc: "JWT, roles (Admin / Editor / Viewer) y solicitud de acceso",
+                                        title: t("govTitle"),
+                                        desc: t("govDesc"),
                                     },
                                     {
                                         icon: <BarChart3 className="h-5 w-5" />,
-                                        title: "Dashboards propios",
-                                        desc: "React + Recharts. Sin dependencia de herramientas de pago",
+                                        title: t("dashTitle"),
+                                        desc: t("dashDesc"),
                                     },
                                     {
                                         icon: <GitBranch className="h-5 w-5" />,
-                                        title: "Trazabilidad",
-                                        desc: "Código versionado, linaje de datos y documentación en español",
+                                        title: t("traceTitle"),
+                                        desc: t("traceDesc"),
                                     },
                                 ].map((item, i) => (
                                     <SpotlightCard
                                         key={i}
                                         className={`rounded-2xl border p-5 ${isDark
-                                                ? "border-white/10 bg-white/[0.03]"
-                                                : "border-black/5 bg-white"
+                                            ? "border-white/10 bg-white/[0.03]"
+                                            : "border-black/5 bg-white"
                                             }`}
                                     >
                                         <div
                                             className={`mb-4 inline-flex p-2.5 rounded-xl ${isDark
-                                                    ? "bg-white/5 text-neutral-300"
-                                                    : "bg-neutral-100 text-neutral-700"
+                                                ? "bg-white/5 text-neutral-300"
+                                                : "bg-neutral-100 text-neutral-700"
                                                 }`}
                                         >
                                             {item.icon}
@@ -336,8 +327,8 @@ export function Projects() {
                                         <span
                                             key={tech}
                                             className={`text-xs px-3 py-1.5 rounded-full border ${isDark
-                                                    ? "border-white/10 text-neutral-400"
-                                                    : "border-black/10 text-neutral-600"
+                                                ? "border-white/10 text-neutral-400"
+                                                : "border-black/10 text-neutral-600"
                                                 }`}
                                         >
                                             {tech}
@@ -348,11 +339,11 @@ export function Projects() {
                                 <Link
                                     href={`/${locale}/projects/redsur`}
                                     className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${isDark
-                                            ? "text-neutral-300 hover:text-white"
-                                            : "text-neutral-600 hover:text-neutral-900"
+                                        ? "text-neutral-300 hover:text-white"
+                                        : "text-neutral-600 hover:text-neutral-900"
                                         }`}
                                 >
-                                    Ver caso completo
+                                    {t("viewFullCase")}
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                             </div>

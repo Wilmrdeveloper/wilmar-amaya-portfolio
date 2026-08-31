@@ -57,8 +57,6 @@ export function Contact() {
         const form = e.currentTarget;
         const data = new FormData(form);
 
-        // Por ahora solo simula el envío.
-        // Luego puedes conectar Formspree, Resend o una API route.
         try {
             await new Promise((resolve) => setTimeout(resolve, 900));
             console.log({
@@ -91,7 +89,7 @@ export function Contact() {
                         className={`text-xs font-medium uppercase tracking-[0.25em] mb-4 font-[family-name:var(--font-barlow)] ${isDark ? "text-neutral-500" : "text-neutral-400"
                             }`}
                     >
-                        Contacto
+                        {t("label")}
                     </motion.p>
 
                     <motion.h2
@@ -133,14 +131,14 @@ export function Contact() {
                                 target={item.href.startsWith("http") ? "_blank" : undefined}
                                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                                 className={`group flex items-center gap-4 rounded-2xl border p-4 transition-colors ${isDark
-                                        ? "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]"
-                                        : "border-black/5 bg-neutral-50 hover:bg-neutral-100"
+                                    ? "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]"
+                                    : "border-black/5 bg-neutral-50 hover:bg-neutral-100"
                                     }`}
                             >
                                 <div
                                     className={`flex h-10 w-10 items-center justify-center rounded-xl ${isDark
-                                            ? "bg-white/5 text-neutral-300"
-                                            : "bg-white text-neutral-700"
+                                        ? "bg-white/5 text-neutral-300"
+                                        : "bg-white text-neutral-700"
                                         }`}
                                 >
                                     {item.icon}
@@ -174,8 +172,8 @@ export function Contact() {
                         <form
                             onSubmit={handleSubmit}
                             className={`rounded-3xl border p-6 md:p-8 space-y-5 ${isDark
-                                    ? "border-white/10 bg-white/[0.03]"
-                                    : "border-black/5 bg-neutral-50"
+                                ? "border-white/10 bg-white/[0.03]"
+                                : "border-black/5 bg-neutral-50"
                                 }`}
                         >
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -190,10 +188,10 @@ export function Contact() {
                                         name="name"
                                         required
                                         className={`w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors ${isDark
-                                                ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
-                                                : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
+                                            ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
+                                            : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
                                             }`}
-                                        placeholder="Tu nombre"
+                                        placeholder={t("placeholderName")}
                                     />
                                 </div>
 
@@ -209,10 +207,10 @@ export function Contact() {
                                         name="email"
                                         required
                                         className={`w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors ${isDark
-                                                ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
-                                                : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
+                                            ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
+                                            : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
                                             }`}
-                                        placeholder="empresa@correo.com"
+                                        placeholder={t("placeholderEmail")}
                                     />
                                 </div>
                             </div>
@@ -228,10 +226,10 @@ export function Contact() {
                                     name="company"
                                     required
                                     className={`w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors ${isDark
-                                            ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
-                                            : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
+                                        ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
+                                        : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
                                         }`}
-                                    placeholder="Nombre de la empresa"
+                                    placeholder={t("placeholderCompany")}
                                 />
                             </div>
 
@@ -247,10 +245,10 @@ export function Contact() {
                                     required
                                     rows={5}
                                     className={`w-full rounded-xl border px-4 py-3 text-sm outline-none resize-none transition-colors ${isDark
-                                            ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
-                                            : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
+                                        ? "border-white/10 bg-black/40 text-white placeholder:text-neutral-600 focus:border-white/25"
+                                        : "border-black/10 bg-white text-neutral-900 placeholder:text-neutral-400 focus:border-black/25"
                                         }`}
-                                    placeholder="Cuéntame sobre la oportunidad o el proyecto..."
+                                    placeholder={t("placeholderMessage")}
                                 />
                             </div>
 
@@ -271,7 +269,7 @@ export function Contact() {
                                     disabled={status === "sending"}
                                     className="font-[family-name:var(--font-barlow)] tracking-[0.12em] uppercase"
                                 >
-                                    {status === "sending" ? "Enviando..." : t("formSubmit")}
+                                    {status === "sending" ? t("sending") : t("formSubmit")}
                                 </SpecularButton>
 
                                 {status === "sent" && (
@@ -279,13 +277,13 @@ export function Contact() {
                                         className={`text-sm ${isDark ? "text-neutral-300" : "text-neutral-600"
                                             }`}
                                     >
-                                        Mensaje preparado. Conectaremos el envío real en el siguiente paso.
+                                        {t("sent")}
                                     </p>
                                 )}
 
                                 {status === "error" && (
                                     <p className="text-sm text-red-400">
-                                        Hubo un problema. Intenta de nuevo.
+                                        {t("error")}
                                     </p>
                                 )}
                             </div>
