@@ -77,8 +77,7 @@ export function Skills() {
                         className={`mt-5 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"
                             }`}
                     >
-                        Herramientas y tecnologías con las que trabajo para construir
-                        soluciones sólidas, desde el análisis de datos hasta el desarrollo
+                        Herramientas y tecnologías con las que trabajo y aprendo desde el análisis de datos hasta el desarrollo
                         full stack.
                     </motion.p>
                 </div>

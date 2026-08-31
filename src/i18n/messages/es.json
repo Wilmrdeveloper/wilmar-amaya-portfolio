@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "title": "Wilmar Amaya · Desarrollador de Software Full Stack",
-        "description": "Portafolio de Wilmar Amaya, Desarrollador de Software Full Stack orientado al análisis de datos."
+        "description": "Portafolio de Wilmar Amaya, Desarrollador de Software orientado al análisis de datos."
     },
     "Nav": {
         "home": "Inicio",
@@ -13,8 +13,8 @@
     "Hero": {
         "badge": "Disponible para empresas",
         "title": "Wilmar Amaya",
-        "subtitle": "Desarrollador de Software Full Stack orientado al análisis de datos",
-        "description": "Tecnólogo en Análisis y Desarrollo de Software con experiencia en Power BI, Databricks, Python y desarrollo web. Transformo datos en decisiones y construyo soluciones sólidas.",
+        "subtitle": "Desarrollador de Software orientado al análisis de datos",
+        "description": "Tecnólogo en Análisis y Desarrollo de Software con experiencia en Power BI, Databricks, Python y desarrollo web. Me gsutaria transformar datos en decisiones y construir soluciones viables.",
         "ctaPrimary": "Ver proyectos",
         "ctaSecondary": "Contactar"
     },
@@ -33,7 +33,7 @@
     },
     "Contact": {
         "title": "Contacto",
-        "subtitle": "Disponible exclusivamente para empresas y oportunidades de crecimiento conjunto",
+        "subtitle": "Disponible para empresas y oportunidades de crecimiento",
         "formName": "Nombre",
         "formEmail": "Email corporativo",
         "formCompany": "Empresa",

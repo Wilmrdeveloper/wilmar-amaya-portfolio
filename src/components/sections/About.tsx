@@ -83,13 +83,14 @@ export function About() {
                             className={`text-lg md:text-xl font-light leading-relaxed ${isDark ? "text-neutral-300" : "text-neutral-700"
                                 }`}
                         >
-                            Tecnólogo en Análisis y Desarrollo de Software con experiencia en
-                            análisis de datos y desarrollo de soluciones basadas en datos.
+                            Tecnólogo en Análisis y Desarrollo de Software en crecimiento con experiencia en
+                            análisis de datos y desarrollo de software.
                             He trabajado en la modelación de datos utilizando{" "}
                             <span className={isDark ? "text-white font-medium" : "text-neutral-900 font-medium"}>
                                 Power BI, DAX y Databricks
                             </span>
                             , así como en el desarrollo backend y frontend.
+                            Busco por aplicar mis conocimientos en una empresa que reconosca el valor de los datos.
                         </motion.p>
 
                         <motion.p
@@ -100,11 +101,11 @@ export function About() {
                             className={`text-base md:text-lg font-light leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"
                                 }`}
                         >
-                            Durante mi experiencia como Analista de Datos en Alquería,
-                            construí dashboards para análisis de indicadores, optimicé modelos
+                            Durante mi experiencia en el analisis de Datos en Alquería,
+                            construí dashboards para analisar indicadores, optimicé modelos
                             DAX reduciendo tiempos de carga en un 30% y desarrollé pipelines
-                            ETL en Databricks. Me interesa construir soluciones sólidas que
-                            transformen datos en decisiones accionables.
+                            ETL en Databricks. Me interesa construir soluciones sólidas no solo con
+                            el analisis de datos si no con el desarrollo de Software.
                         </motion.p>
 
                         {/* Info cards */}
