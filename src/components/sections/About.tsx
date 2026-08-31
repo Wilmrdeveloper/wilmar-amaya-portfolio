@@ -38,7 +38,7 @@ export function About() {
                         className="lg:col-span-5 flex justify-center lg:justify-start"
                     >
                         <TiltedCard
-                            imageSrc="/images/profile.jpg"
+                            imageSrc="/images/profile.jpeg"
                             altText="Wilmar Amaya"
                             captionText="Wilmar Amaya"
                             containerHeight="360px"
