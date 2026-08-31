@@ -25,16 +25,33 @@ export function Hero() {
 
     const lineWavesProps = isDark
         ? {
-            color1: "#ffffff",
-            color2: "#f5f5f5",
-            color3: "#e5e5e5",
-            brightness: 0.28,
+            speed: 0.7,
+            innerLineCount: 8,
+            outerLineCount: 31,
+            warpIntensity: 0.7,
+            rotation: 45,
+            edgeFadeWidth: 0,
+            colorCycleSpeed: 1.9,
+            brightness: 0.1,
+            color1: "#f16262",
+            color2: "#9af1ff",
+            color3: "#0008ff",
+            mouseInfluence: 2,
         }
         : {
-            color1: "#a5b4fc",
-            color2: "#818cf8",
-            color3: "#6366f1",
-            brightness: 0.22,
+            // Misma estética, un poco más visible sobre fondo blanco
+            speed: 0.7,
+            innerLineCount: 8,
+            outerLineCount: 31,
+            warpIntensity: 0.7,
+            rotation: 45,
+            edgeFadeWidth: 0,
+            colorCycleSpeed: 1.9,
+            brightness: 0.14,
+            color1: "#f16262",
+            color2: "#9af1ff",
+            color3: "#0008ff",
+            mouseInfluence: 2,
         };
 
     // Si quieres solo grises también en light mode:
@@ -50,19 +67,19 @@ export function Hero() {
                 {mounted && (
                     <LineWaves
                         key={isDark ? "dark-waves" : "light-waves"}
-                        speed={0.3}
-                        innerLineCount={42}
-                        outerLineCount={48}
-                        warpIntensity={1}
-                        rotation={-45}
-                        edgeFadeWidth={0}
-                        colorCycleSpeed={1}
+                        speed={lineWavesProps.speed}
+                        innerLineCount={lineWavesProps.innerLineCount}
+                        outerLineCount={lineWavesProps.outerLineCount}
+                        warpIntensity={lineWavesProps.warpIntensity}
+                        rotation={lineWavesProps.rotation}
+                        edgeFadeWidth={lineWavesProps.edgeFadeWidth}
+                        colorCycleSpeed={lineWavesProps.colorCycleSpeed}
                         brightness={lineWavesProps.brightness}
                         color1={lineWavesProps.color1}
                         color2={lineWavesProps.color2}
                         color3={lineWavesProps.color3}
                         enableMouseInteraction
-                        mouseInfluence={2}
+                        mouseInfluence={lineWavesProps.mouseInfluence}
                     />
                 )}
             </div>
