@@ -1,15 +1,48 @@
+﻿/*
+ * Project & Portfolio Code - All rights reserved.
+ */
+
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
-import { useTheme } from "@/components/providers";
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/components/providers";
 import { PERSONAL } from "@/lib/constants";
 import { TextMorph } from "@/components/ui/TextMorph";
 import WarpText from "@/components/ui/WarpText";
 import LineWaves from "@/components/three/LineWaves";
 import SpecularButton from "@/components/ui/SpecularButton";
+
+const ROLES = {
+    es: [
+        "Desarrollador Full Stack",
+        "Analista de Datos",
+        "Desarrollador de Software",
+        "Solucionador de Problemas",
+    ],
+    en: [
+        "Full Stack Developer",
+        "Data Analyst",
+        "Software Developer",
+        "Problem Solver",
+    ],
+} as const;
+
+const WAVE_BASE = {
+    speed: 0.7,
+    innerLineCount: 8,
+    outerLineCount: 31,
+    warpIntensity: 0.7,
+    rotation: 45,
+    edgeFadeWidth: 0,
+    colorCycleSpeed: 1.9,
+    color1: "#f16262",
+    color2: "#9af1ff",
+    color3: "#0008ff",
+    mouseInfluence: 2,
+} as const;
 
 export function Hero() {
     const t = useTranslations("Hero");
@@ -22,97 +55,53 @@ export function Hero() {
     }, []);
 
     const isDark = mounted && resolvedTheme === "dark";
-
-    const lineWavesProps = isDark
-        ? {
-            speed: 0.7,
-            innerLineCount: 8,
-            outerLineCount: 31,
-            warpIntensity: 0.7,
-            rotation: 45,
-            edgeFadeWidth: 0,
-            colorCycleSpeed: 1.9,
-            brightness: 0.1,
-            color1: "#f16262",
-            color2: "#9af1ff",
-            color3: "#0008ff",
-            mouseInfluence: 2,
-        }
-        : {
-            // Misma estética, un poco más visible sobre fondo blanco
-            speed: 0.7,
-            innerLineCount: 8,
-            outerLineCount: 31,
-            warpIntensity: 0.7,
-            rotation: 45,
-            edgeFadeWidth: 0,
-            colorCycleSpeed: 1.9,
-            brightness: 0.14,
-            color1: "#f16262",
-            color2: "#9af1ff",
-            color3: "#0008ff",
-            mouseInfluence: 2,
-        };
-
-    // Si quieres solo grises también en light mode:
-    // light: color1/2/3 en grises y brightness ~0.22
+    const roles = ROLES[locale === "en" ? "en" : "es"];
 
     return (
         <section
-            className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? "bg-[#050505]" : "bg-white"
-                }`}
+            className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden transition-colors duration-500 ${
+                isDark ? "bg-[#050505]" : "bg-white"
+            }`}
         >
-            {/* Fondo LineWaves */}
             <div className="absolute inset-0 z-0">
                 {mounted && (
                     <LineWaves
                         key={isDark ? "dark-waves" : "light-waves"}
-                        speed={lineWavesProps.speed}
-                        innerLineCount={lineWavesProps.innerLineCount}
-                        outerLineCount={lineWavesProps.outerLineCount}
-                        warpIntensity={lineWavesProps.warpIntensity}
-                        rotation={lineWavesProps.rotation}
-                        edgeFadeWidth={lineWavesProps.edgeFadeWidth}
-                        colorCycleSpeed={lineWavesProps.colorCycleSpeed}
-                        brightness={lineWavesProps.brightness}
-                        color1={lineWavesProps.color1}
-                        color2={lineWavesProps.color2}
-                        color3={lineWavesProps.color3}
+                        {...WAVE_BASE}
+                        brightness={isDark ? 0.1 : 0.14}
                         enableMouseInteraction
-                        mouseInfluence={lineWavesProps.mouseInfluence}
                     />
                 )}
             </div>
 
-            {/* Overlay legibilidad */}
             <div
-                className={`absolute inset-0 z-[1] pointer-events-none ${isDark
+                className={`pointer-events-none absolute inset-0 z-[1] ${
+                    isDark
                         ? "bg-gradient-to-b from-black/60 via-black/30 to-black/70"
                         : "bg-gradient-to-b from-white/70 via-white/40 to-white/80"
-                    }`}
+                }`}
             />
 
-            {/* Contenido */}
             <div className="relative z-10 flex max-w-4xl flex-col items-center px-6 text-center">
-                {/* Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1 }}
-                    className={`mb-8 border backdrop-blur-md ${isDark
+                    className={`mb-8 border backdrop-blur-md ${
+                        isDark
                             ? "border-white/15 bg-white/5"
                             : "border-black/10 bg-white/50"
-                        }`}
+                    }`}
                 >
                     <span
-                        className={`inline-block px-5 py-2 font-[family-name:var(--font-barlow)] text-xs font-medium uppercase ${isDark ? "text-neutral-300" : "text-neutral-600"
-                            }`}
+                        className={`inline-block px-5 py-2 font-[family-name:var(--font-barlow)] text-xs font-medium uppercase ${
+                            isDark ? "text-neutral-300" : "text-neutral-600"
+                        }`}
                     >
                         {t("badge")}
                     </span>
                 </motion.div>
 
-                {/* Título WarpText */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -138,50 +127,31 @@ export function Hero() {
                     />
                 </motion.div>
 
-                {/* TextMorph */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.35 }}
                     className="mt-5 font-[family-name:var(--font-barlow)]"
                 >
-                    <TextMorph
-                        words={
-                            locale === "es"
-                                ? [
-                                    "Desarrollador Full Stack",
-                                    "Analista de Datos",
-                                    "Desarrollador de Software",
-                                    "Solucionador de Problemas",
-                                ]
-                                : [
-                                    "Full Stack Developer",
-                                    "Data Analyst",
-                                    "Software Developer",
-                                    "Problem Solver",
-                                ]
-                        }
-                        duration={2.8}
-                    />
+                    <TextMorph words={[...roles]} duration={2.8} />
                 </motion.div>
 
-                {/* Descripción */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className={`mt-6 max-w-2xl text-base md:text-lg font-light leading-relaxed font-[family-name:var(--font-barlow)] ${isDark ? "text-neutral-400" : "text-neutral-600"
-                        }`}
+                    className={`mt-6 max-w-2xl text-base font-light leading-relaxed font-[family-name:var(--font-barlow)] md:text-lg ${
+                        isDark ? "text-neutral-400" : "text-neutral-600"
+                    }`}
                 >
                     {t("description")}
                 </motion.p>
 
-                {/* Botones Specular */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="mt-10 flex flex-col sm:flex-row gap-4"
+                    className="mt-10 flex flex-col gap-4 sm:flex-row"
                 >
                     <Link href={`/${locale}#projects`}>
                         <SpecularButton
@@ -223,12 +193,12 @@ export function Hero() {
                 </motion.div>
             </div>
 
-            {/* Gradiente inferior */}
             <div
-                className={`absolute bottom-0 left-0 h-32 w-full z-10 pointer-events-none ${isDark
+                className={`pointer-events-none absolute bottom-0 left-0 z-10 h-32 w-full ${
+                    isDark
                         ? "bg-gradient-to-t from-[#050505] to-transparent"
                         : "bg-gradient-to-t from-white to-transparent"
-                    }`}
+                }`}
             />
         </section>
     );

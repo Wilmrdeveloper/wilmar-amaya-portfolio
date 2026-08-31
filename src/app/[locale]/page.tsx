@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Code - All rights reserved.
+ */
+
 import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
 import { About } from "@/components/sections/About";
