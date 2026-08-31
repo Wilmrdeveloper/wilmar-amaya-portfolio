@@ -90,7 +90,7 @@ export function About() {
                                 Power BI, DAX y Databricks
                             </span>
                             , así como en el desarrollo backend y frontend.
-                            Busco por aplicar mis conocimientos en una empresa que reconosca el valor de los datos.
+                            Busco aplicar mis conocimientos en una empresa que reconozca el valor de los datos.
                         </motion.p>
 
                         <motion.p
