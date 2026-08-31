@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";

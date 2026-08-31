@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import { useTranslations } from "next-intl";
@@ -45,7 +49,6 @@ export function Skills() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-6">
-                {/* Header */}
                 <div className="text-center mb-16 md:mb-20">
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
@@ -81,7 +84,6 @@ export function Skills() {
                     </motion.p>
                 </div>
 
-                {/* Logo Loop */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

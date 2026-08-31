@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import { useTranslations } from "next-intl";
@@ -9,13 +13,13 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { PERSONAL } from "@/lib/constants";
 import SpecularButton from "@/components/ui/SpecularButton";
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 export function Contact() {
     const t = useTranslations("Contact");
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
-    const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-        "idle"
-    );
+    const [status, setStatus] = useState<FormStatus>("idle");
 
     useEffect(() => {
         setMounted(true);
@@ -79,7 +83,6 @@ export function Contact() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-6">
-                {/* Header */}
                 <div className="mb-14 md:mb-16 max-w-2xl">
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
@@ -116,7 +119,6 @@ export function Contact() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-                    {/* Links */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +163,6 @@ export function Contact() {
                         ))}
                     </motion.div>
 
-                    {/* Formulario */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

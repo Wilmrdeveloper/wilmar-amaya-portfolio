@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -35,7 +39,6 @@ export function RedsurCase() {
                 }`}
         >
             <div className="max-w-4xl mx-auto px-6">
-                {/* Back */}
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -53,7 +56,6 @@ export function RedsurCase() {
                     </a>
                 </motion.div>
 
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -93,7 +95,6 @@ export function RedsurCase() {
                     </div>
                 </motion.div>
 
-                {/* Morph */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -127,7 +128,6 @@ export function RedsurCase() {
                     />
                 </motion.div>
 
-                {/* Problem */}
                 <Section title={t("problemTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
                         {t("problemP1")}
@@ -137,7 +137,6 @@ export function RedsurCase() {
                     </p>
                 </Section>
 
-                {/* Architecture */}
                 <Section title={t("architectureTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
                         {t("architectureIntro")}
@@ -192,14 +191,12 @@ export function RedsurCase() {
                     </div>
                 </Section>
 
-                {/* Portal */}
                 <Section title={t("portalTitle")} isDark={isDark}>
                     <p className={bodyClass(isDark)}>
                         {t("portalP")}
                     </p>
                 </Section>
 
-                {/* Challenges */}
                 <Section title={t("challengesTitle")} isDark={isDark}>
                     <ul
                         className={`space-y-4 text-sm md:text-base leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"
@@ -226,7 +223,6 @@ export function RedsurCase() {
                     </ul>
                 </Section>
 
-                {/* Stack */}
                 <Section title={t("stackTitle")} isDark={isDark}>
                     <div className="flex flex-wrap gap-2">
                         {[
@@ -254,7 +250,6 @@ export function RedsurCase() {
                     </div>
                 </Section>
 
-                {/* What it shows */}
                 <Section title={t("showsTitle")} isDark={isDark}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
@@ -311,7 +306,6 @@ export function RedsurCase() {
                     </div>
                 </Section>
 
-                {/* CTA */}
                 <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-4">
                     <a
                         href="https://redsur-data-governance-portal.vercel.app"

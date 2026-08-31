@@ -1,10 +1,13 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useTheme } from "@/components/providers";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useLocale } from "next-intl";
 import {
     ExternalLink,
     ArrowRight,
@@ -36,7 +39,6 @@ export function Projects() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-6">
-                {/* Header */}
                 <div className="mb-16 md:mb-20">
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
@@ -61,7 +63,6 @@ export function Projects() {
                     </motion.h2>
                 </div>
 
-                {/* Project Card principal */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +75,6 @@ export function Projects() {
                             : "border-black/5 bg-neutral-50"
                             }`}
                     >
-                        {/* Top bar */}
                         <div
                             className={`px-6 md:px-10 py-5 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${isDark ? "border-white/10" : "border-black/5"
                                 }`}
@@ -108,9 +108,7 @@ export function Projects() {
                             </a>
                         </div>
 
-                        {/* Content */}
                         <div className="p-6 md:p-10 space-y-12">
-                            {/* Pitch */}
                             <div className="max-w-3xl">
                                 <p
                                     className={`text-lg md:text-xl font-light leading-relaxed ${isDark ? "text-neutral-300" : "text-neutral-700"
@@ -120,7 +118,6 @@ export function Projects() {
                                 </p>
                             </div>
 
-                            {/* Before / After */}
                             <div className="space-y-8">
                                 <h4
                                     className={`text-sm font-medium uppercase tracking-widest ${isDark ? "text-neutral-500" : "text-neutral-400"
@@ -158,7 +155,6 @@ export function Projects() {
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    {/* Antes */}
                                     <SpotlightCard
                                         className={`rounded-2xl border p-6 ${isDark
                                             ? "border-white/10 bg-black/40"
@@ -201,7 +197,6 @@ export function Projects() {
                                         </ul>
                                     </SpotlightCard>
 
-                                    {/* Después */}
                                     <SpotlightCard
                                         className={`rounded-2xl border p-6 ${isDark
                                             ? "border-white/10 bg-white/[0.04]"
@@ -253,7 +248,6 @@ export function Projects() {
                                 </p>
                             </div>
 
-                            {/* Key points */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                                 {[
                                     {
@@ -308,7 +302,6 @@ export function Projects() {
                                 ))}
                             </div>
 
-                            {/* Stack + CTA */}
                             <div
                                 className={`pt-6 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${isDark ? "border-white/10" : "border-black/5"
                                     }`}

@@ -1,4 +1,7 @@
-// src/lib/utils.ts
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

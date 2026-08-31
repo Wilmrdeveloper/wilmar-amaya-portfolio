@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import {
@@ -19,7 +23,7 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
-const STORAGE_KEY = "wilmar-theme";
+const THEME_STORAGE_KEY = "wilmar-theme";
 
 function applyTheme(theme: Theme) {
     if (typeof document === "undefined") return;
@@ -33,7 +37,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [theme, setThemeState] = useState<Theme>("dark");
 
     useEffect(() => {
-        const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
+        const stored = window.localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
         const initial: Theme =
             stored === "light" || stored === "dark" ? stored : "dark";
         setThemeState(initial);
@@ -42,7 +46,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     const setTheme = useCallback((next: Theme) => {
         setThemeState(next);
-        window.localStorage.setItem(STORAGE_KEY, next);
+        window.localStorage.setItem(THEME_STORAGE_KEY, next);
         applyTheme(next);
     }, []);
 

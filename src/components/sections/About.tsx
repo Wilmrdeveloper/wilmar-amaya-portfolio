@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import { useTranslations } from "next-intl";
@@ -26,7 +30,6 @@ export function About() {
             <div className="max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-                    {/* Left - Photo Card */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -49,7 +52,6 @@ export function About() {
                         />
                     </motion.div>
 
-                    {/* Right - Content */}
                     <div className="lg:col-span-7 space-y-7">
                         <div>
                             <motion.p
@@ -97,7 +99,6 @@ export function About() {
                             {t("paragraph2")}
                         </motion.p>
 
-                        {/* Info cards */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}

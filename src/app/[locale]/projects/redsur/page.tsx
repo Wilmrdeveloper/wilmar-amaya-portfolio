@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 import { setRequestLocale } from "next-intl/server";
 import { RedsurCase } from "@/components/sections/RedsurCase";
 

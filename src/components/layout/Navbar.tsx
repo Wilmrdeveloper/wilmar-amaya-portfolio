@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
@@ -28,7 +32,6 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Cerrar menú al cambiar de ruta / resize a desktop
     useEffect(() => {
         setMenuOpen(false);
     }, [pathname]);
@@ -41,7 +44,6 @@ export function Navbar() {
         return () => window.removeEventListener("resize", onResize);
     }, []);
 
-    // Bloquear scroll del body cuando el menú está abierto
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
         return () => {
@@ -50,12 +52,15 @@ export function Navbar() {
     }, [menuOpen]);
 
     const switchLocale = () => {
-        const newLocale = locale === "es" ? "en" : "es";
+        const nextLocale = locale === "es" ? "en" : "es";
         const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
-        router.push(`/${newLocale}${pathWithoutLocale}`);
+        router.push(`/${nextLocale}${pathWithoutLocale}`);
     };
 
-    // Scroll suave sin provocar fetch de Next.js
+    /**
+     * Handles in-page anchor navigation with a smooth scroll,
+     * avoiding a full Next.js route transition.
+     */
     const handleNavClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
         href: string,
@@ -69,7 +74,6 @@ export function Navbar() {
 
         if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "start" });
-            // Actualiza la URL sin navegación de Next
             window.history.pushState(null, "", `/${locale}${href}`);
         }
 
@@ -110,7 +114,6 @@ export function Navbar() {
                         scrolled || menuOpen ? "max-w-6xl mx-auto px-4 sm:px-6" : "w-full"
                     )}
                 >
-                    {/* Logo */}
                     <Link
                         href={`/${locale}`}
                         className="font-[family-name:var(--font-barlow)] text-lg font-semibold tracking-wide shrink-0"
@@ -121,7 +124,6 @@ export function Navbar() {
                         </span>
                     </Link>
 
-                    {/* Links desktop */}
                     <div className="hidden md:flex items-center gap-1">
                         {navItems.map((item) =>
                             item.isAnchor ? (
@@ -155,7 +157,6 @@ export function Navbar() {
                         )}
                     </div>
 
-                    {/* Actions */}
                     <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                         <a href={PERSONAL.cvPath} download className="hidden sm:block">
                             <SpecularButton
@@ -207,7 +208,6 @@ export function Navbar() {
                             )}
                         </button>
 
-                        {/* Hamburguesa - solo móvil */}
                         <button
                             onClick={() => setMenuOpen((v) => !v)}
                             className={cn(
@@ -237,7 +237,6 @@ export function Navbar() {
                 </div>
             </motion.nav>
 
-            {/* Menú móvil */}
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div

@@ -1,5 +1,5 @@
 ﻿/*
- * Project & Portfolio Code - All rights reserved.
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
  */
 
 "use client";
@@ -59,9 +59,8 @@ export function Hero() {
 
     return (
         <section
-            className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden transition-colors duration-500 ${
-                isDark ? "bg-[#050505]" : "bg-white"
-            }`}
+            className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden transition-colors duration-500 ${isDark ? "bg-[#050505]" : "bg-white"
+                }`}
         >
             <div className="absolute inset-0 z-0">
                 {mounted && (
@@ -75,11 +74,10 @@ export function Hero() {
             </div>
 
             <div
-                className={`pointer-events-none absolute inset-0 z-[1] ${
-                    isDark
+                className={`pointer-events-none absolute inset-0 z-[1] ${isDark
                         ? "bg-gradient-to-b from-black/60 via-black/30 to-black/70"
                         : "bg-gradient-to-b from-white/70 via-white/40 to-white/80"
-                }`}
+                    }`}
             />
 
             <div className="relative z-10 flex max-w-4xl flex-col items-center px-6 text-center">
@@ -87,16 +85,14 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1 }}
-                    className={`mb-8 border backdrop-blur-md ${
-                        isDark
+                    className={`mb-8 border backdrop-blur-md ${isDark
                             ? "border-white/15 bg-white/5"
                             : "border-black/10 bg-white/50"
-                    }`}
+                        }`}
                 >
                     <span
-                        className={`inline-block px-5 py-2 font-[family-name:var(--font-barlow)] text-xs font-medium uppercase ${
-                            isDark ? "text-neutral-300" : "text-neutral-600"
-                        }`}
+                        className={`inline-block px-5 py-2 font-[family-name:var(--font-barlow)] text-xs font-medium uppercase ${isDark ? "text-neutral-300" : "text-neutral-600"
+                            }`}
                     >
                         {t("badge")}
                     </span>
@@ -140,9 +136,8 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className={`mt-6 max-w-2xl text-base font-light leading-relaxed font-[family-name:var(--font-barlow)] md:text-lg ${
-                        isDark ? "text-neutral-400" : "text-neutral-600"
-                    }`}
+                    className={`mt-6 max-w-2xl text-base font-light leading-relaxed font-[family-name:var(--font-barlow)] md:text-lg ${isDark ? "text-neutral-400" : "text-neutral-600"
+                        }`}
                 >
                     {t("description")}
                 </motion.p>
@@ -194,11 +189,10 @@ export function Hero() {
             </div>
 
             <div
-                className={`pointer-events-none absolute bottom-0 left-0 z-10 h-32 w-full ${
-                    isDark
+                className={`pointer-events-none absolute bottom-0 left-0 z-10 h-32 w-full ${isDark
                         ? "bg-gradient-to-t from-[#050505] to-transparent"
                         : "bg-gradient-to-t from-white to-transparent"
-                }`}
+                    }`}
             />
         </section>
     );

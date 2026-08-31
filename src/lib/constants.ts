@@ -1,3 +1,7 @@
+/*
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
+ */
+
 export const PERSONAL = {
     name: "Wilmar Amaya",
     fullName: "Wilmar Amaya Beltran",
@@ -26,5 +30,5 @@ export const SKILLS = [
     { name: "Git", category: "tool" },
     { name: "Backend", category: "dev" },
     { name: "Frontend", category: "dev" },
-    { name: "Reportería", category: "analysis" }
+    { name: "Reportería", category: "analysis" },
 ];

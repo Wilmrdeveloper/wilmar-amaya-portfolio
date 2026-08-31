@@ -1,5 +1,5 @@
 /*
- * Project & Portfolio Code - All rights reserved.
+ * Project & Portfolio Wilmar Amaya Code - All rights reserved.
  */
 
 import { Hero } from "@/components/sections/Hero";
@@ -19,3 +19,4 @@ export default function HomePage() {
         </>
     );
 }
+
